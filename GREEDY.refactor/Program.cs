@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using GREEDY.refactor.DataManagers;
+using GREEDY.refactor.OCRs;
+using GREEDY.refactor.Services;
 using GREEDY.refactor.View;
 
 namespace GREEDY.refactor
@@ -14,7 +17,18 @@ namespace GREEDY.refactor
         {
             Application.EnableVisualStyles ();
             Application.SetCompatibleTextRenderingDefault (false);
-            Application.Run (new Greedy ());
+            Application.Run 
+            (
+                new Greedy 
+                (
+                    new ReceiptService 
+                    (
+                        new EmguOcr (new AppConfig ()),
+                        new DataConverter (), 
+                        new DataManager ()
+                    )
+                )
+            );
         }
     }
 }
