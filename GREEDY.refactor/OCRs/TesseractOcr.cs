@@ -1,6 +1,4 @@
 ﻿using System.Drawing;
-using Emgu.CV;
-using Emgu.CV.Structure;
 using GREEDY.refactor.Extensions;
 using GREEDY.refactor.Models;
 using Tesseract;
@@ -8,6 +6,7 @@ using Tesseract;
 namespace GREEDY.refactor.OCRs
 {
     // currently doesn't work cause the nuget is shit
+    // can add dll's to make it work but still...
     public class TesseractOcr : IOcr
     {
         private readonly TesseractEngine _tesseract;
