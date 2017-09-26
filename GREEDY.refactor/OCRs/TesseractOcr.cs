@@ -7,6 +7,7 @@ using Tesseract;
 
 namespace GREEDY.refactor.OCRs
 {
+    // currently doesn't work cause the nuget is shit
     public class TesseractOcr : IOcr
     {
         private readonly TesseractEngine _tesseract;
