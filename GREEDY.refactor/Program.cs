@@ -21,7 +21,7 @@ namespace GREEDY.refactor
             // TODO: normal dependency injection
             Application.Run 
             (
-                new Greedy 
+                new MainScreen
                 (
                     new ReceiptService 
                     (

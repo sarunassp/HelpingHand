@@ -1,4 +1,6 @@
-﻿namespace GREEDY
+﻿using GREEDY.refactor.Services;
+
+namespace GREEDY.refactor.View
 {
     partial class MainScreen
     {
@@ -48,9 +50,11 @@
             this.insertPictureButton.TabIndex = 0;
             this.insertPictureButton.Text = "ĮKELTI NUOTRAUKĄ";
             this.insertPictureButton.UseVisualStyleBackColor = false;
+            this.insertPictureButton.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // XMLdataGridView
             // 
+            this.XMLdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.XMLdataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(255)))));
             this.XMLdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.XMLdataGridView.GridColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -82,6 +86,7 @@
             this.TakeAPictureButton.TabIndex = 5;
             this.TakeAPictureButton.Text = "FOTOGRAFUOTI ČEKĮ";
             this.TakeAPictureButton.UseVisualStyleBackColor = false;
+            this.TakeAPictureButton.Click += new System.EventHandler(this.TakePhoto_btnOCR_Click);
             // 
             // MainScreen
             // 
@@ -109,5 +114,11 @@
         private System.Windows.Forms.DataGridView XMLdataGridView;
         private System.Windows.Forms.PictureBox GreedyLogo;
         private System.Windows.Forms.Button TakeAPictureButton;
+        private ReceiptService receiptService;
+
+        public MainScreen(ReceiptService receiptService)
+        {
+            this.receiptService = receiptService;
+        }
     }
 }

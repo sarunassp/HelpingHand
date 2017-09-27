@@ -7,14 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GREEDY.refactor.Services;
 
-namespace GREEDY
+namespace GREEDY.refactor.View
 {
     public partial class MainScreen : Form
     {
-        public MainScreen()
+        private readonly IReceiptService _receiptService;
+
+        public MainScreen(IReceiptService receiptService)
         {
+            _receiptService = receiptService;
             InitializeComponent();
+        }
+
+        private void MainScreen_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InsertPhoto_btnOCR_Click(object sender, EventArgs e)
+        {
+            var processedReceipt = _receiptService.ProcessReceiptImage();
+            // show (processedReceipt);
+        }
+
+        private void TakePhoto_btnOCR_Click(object sender, EventArgs e)
+        {
+            var processedReceipt = _receiptService.ProcessReceiptImage();
+            // show (processedReceipt);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
