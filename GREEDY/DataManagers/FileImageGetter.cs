@@ -28,9 +28,9 @@ namespace GREEDY.DataManagers
         {
             using (GetPathDialog)
             {
- //               if(GetPathDialog.ShowDialog() == DialogResult.OK)
-//                {
-
+                //               if(GetPathDialog.ShowDialog() == DialogResult.OK)
+                //                {
+                GetPathDialog.ShowDialog();
                 // norreturetusi konstantas prikist. kokie pasiulymai?
                 //GetPathDialog.InitialDirectory = "C:\\";
                 //GetPathDialog.Filter = "Image Files(*.PNG; *.JPG; *.GIF)| *.PNG; *.JPG; *.GIF | All files(*.*) | *.*";
