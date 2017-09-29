@@ -33,6 +33,7 @@ namespace GREEDY.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             this.InserFile_Button = new System.Windows.Forms.Button();
             this.PictureFromCamera_Button = new System.Windows.Forms.Button();
+           // this.ImageForOCR = new System.Windows.Forms.OpenFileDialog();
             this.XMLdataGridView = new System.Windows.Forms.DataGridView();
             this.DataViewScrollBar = new System.Windows.Forms.VScrollBar();
             this.GREEDYLOGO = new System.Windows.Forms.PictureBox();
@@ -121,9 +122,11 @@ namespace GREEDY.View
 
         private System.Windows.Forms.Button InserFile_Button;
         private System.Windows.Forms.PictureBox GREEDYLOGO;
+       // private System.Windows.Forms.OpenFileDialog ImageForOCR;
         private System.Windows.Forms.Button PictureFromCamera_Button;
         private System.Windows.Forms.DataGridView XMLdataGridView;
         private System.Windows.Forms.VScrollBar DataViewScrollBar;
+
         //private ReceiptService receiptService;
 
         //public MainScreen(ReceiptService receiptService)
