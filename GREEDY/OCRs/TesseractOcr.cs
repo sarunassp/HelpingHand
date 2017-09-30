@@ -5,8 +5,6 @@ using Tesseract;
 
 namespace GREEDY.OCRs
 {
-    // currently doesn't work cause the nuget is shit
-    // can add dll's to make it work but still...
     public class TesseractOcr : IOcr
     {
         private readonly TesseractEngine _tesseract;

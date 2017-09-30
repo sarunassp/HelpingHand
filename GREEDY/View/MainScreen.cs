@@ -41,19 +41,13 @@ namespace GREEDY.View
             InserFile_Button.Enabled = true;
         }
 
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void XMLdataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void DataViewScrollBar_Scroll(object sender, ScrollEventArgs e)
-        {
+        private void PictureBox1_Click(object sender, EventArgs e) { }
 
-        }
+        private void DataViewScrollBar_Scroll(object sender, ScrollEventArgs e) { }
     }
 }
