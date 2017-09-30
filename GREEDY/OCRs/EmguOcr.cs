@@ -10,14 +10,13 @@ namespace GREEDY.OCRs
     public class EmguOcr : IOcr
     {
         private readonly Emgu.CV.OCR.Tesseract _tesseract;
-        private static IAppConfig AppConfig => new AppConfig();
 
         public EmguOcr ()
         {
             _tesseract = new Emgu.CV.OCR.Tesseract
             (
-                AppConfig.TesseractDataPath,
-                AppConfig.OcrLanguage,
+                Environment.AppConfig.TesseractDataPath,
+                Environment.AppConfig.OcrLanguage,
                 OcrEngineMode.Default
             );
         }

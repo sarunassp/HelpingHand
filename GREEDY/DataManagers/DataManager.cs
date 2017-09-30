@@ -7,7 +7,6 @@ namespace GREEDY.DataManagers
 {
     public class DataManager : IDataManager
     {
-        private static IAppConfig AppConfig => new AppConfig();
         private SaveFileDialog saveFileDialog = new SaveFileDialog();
         
         // not tested yet. Need to write a methods to create a file
@@ -15,7 +14,7 @@ namespace GREEDY.DataManagers
         {
             using (saveFileDialog)
             {
-                saveFileDialog.InitialDirectory = AppConfig.SaveFilePath;
+                saveFileDialog.InitialDirectory = Environment.AppConfig.SaveFilePath;
                 //saveFileDialog.Filter = _config.Filter;
                 saveFileDialog.Title = "Save an Image File";
                 saveFileDialog.RestoreDirectory = true;

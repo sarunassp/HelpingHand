@@ -10,7 +10,6 @@ namespace GREEDY.View
         private readonly IReceiptService _receiptService;
         private readonly IImageGetter _photoImageGetter;
         private readonly IImageGetter _fileImageGetter;
-        private readonly IAppConfig _config;
 
         public MainScreen(ReceiptService receiptService)
         {

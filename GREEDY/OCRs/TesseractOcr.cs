@@ -10,14 +10,13 @@ namespace GREEDY.OCRs
     public class TesseractOcr : IOcr
     {
         private readonly TesseractEngine _tesseract;
-        private static IAppConfig AppConfig => new AppConfig();
 
         public TesseractOcr ()
         {
             _tesseract = new TesseractEngine 
             (
-                AppConfig.TesseractDataPath,
-                AppConfig.OcrLanguage,
+                Environment.AppConfig.TesseractDataPath,
+                Environment.AppConfig.OcrLanguage,
                 EngineMode.TesseractAndCube
             );
         }
