@@ -10,14 +10,14 @@ namespace GREEDY.View
         private readonly IReceiptService _receiptService;
         private readonly IImageGetter _photoImageGetter;
         private readonly IImageGetter _fileImageGetter;
-  //      private readonly IAppConfig _config;
+        private readonly IAppConfig _config;
 
-        public MainScreen(ReceiptService receiptService)
+        public MainScreen(ReceiptService receiptService, IAppConfig config)
         {
             _receiptService = receiptService;
- //           _config = config;
-            _photoImageGetter = new PhotoImageGetter();
-            _fileImageGetter = new FileImageGetter();
+            _config = config;
+            _photoImageGetter = new PhotoImageGetter(config);
+            _fileImageGetter = new FileImageGetter(config);
             InitializeComponent();
         }
 
@@ -27,20 +27,21 @@ namespace GREEDY.View
             Application.UseWaitCursor = true;
             InserFile_Button.Enabled = false;
             var processedReceipt = _receiptService.ProcessReceiptImage(image);
-            
-            //var receipt = await new EmguOcr().UseOCRAsync(ImageForOCR.FileName);
 
             Application.UseWaitCursor = false;
             InserFile_Button.Enabled = true;
             GC.Collect();
-            // show (processedReceipt);
         }
 
         private void PictureFromCamera_Button_Click(object sender, EventArgs e)
         {
             var image = _photoImageGetter.GetImage();
+            Application.UseWaitCursor = true;
+            InserFile_Button.Enabled = false;
             var processedReceipt = _receiptService.ProcessReceiptImage(image);
-            // show (processedReceipt);
+
+            Application.UseWaitCursor = false;
+            InserFile_Button.Enabled = true;
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)

@@ -4,10 +4,15 @@ namespace GREEDY.DataManagers
 {
     class PhotoImageGetter : IImageGetter
     {
+        private readonly IAppConfig _config;
+
+        public PhotoImageGetter(IAppConfig config)
+        {
+            _config = config;
+        }
+
         /// <summary>
-        /// Gets image from {TBD} (We imagine two possibilities to get a receipt. 
-        /// From camera using Emgu.CV and from local file system, such like personal phone (if we create an apps) or
-        /// computer (if we create a web application)
+        /// Gets image from camera using Emgu.CV
         /// </summary>
         /// <returns></returns>
         public Bitmap GetImage()
