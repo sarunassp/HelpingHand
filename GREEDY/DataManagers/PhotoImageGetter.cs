@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace GREEDY.DataManagers
 {
@@ -10,7 +11,7 @@ namespace GREEDY.DataManagers
         /// <returns></returns>
         public Bitmap GetImage()
         {
-            return null;
+            throw new NotImplementedException ();
         }
     }
 }

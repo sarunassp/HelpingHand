@@ -17,8 +17,6 @@ namespace GREEDY.refactor
         {
             Application.EnableVisualStyles ();
             Application.SetCompatibleTextRenderingDefault (false);
-            // dependency injection kinda, can search for a framework
-            // TODO: normal dependency injection
             Application.Run 
             (
                 new MainScreen

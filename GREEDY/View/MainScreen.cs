@@ -28,7 +28,6 @@ namespace GREEDY.View
 
             Application.UseWaitCursor = false;
             InserFile_Button.Enabled = true;
-            GC.Collect();
         }
 
         private void PictureFromCamera_Button_Click(object sender, EventArgs e)
