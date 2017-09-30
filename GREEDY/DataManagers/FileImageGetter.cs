@@ -12,7 +12,7 @@ namespace GREEDY.DataManagers
         {
             using (GetPathDialog)
             {
-                GetPathDialog.Filter = AppConfig.Filter;
+                GetPathDialog.Filter = AppConfig.FilterImageFiles;
                 GetPathDialog.FilterIndex = 2;
                 GetPathDialog.RestoreDirectory = true;
 
