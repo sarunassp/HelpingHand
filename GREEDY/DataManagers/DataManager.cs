@@ -1,18 +1,44 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
 using GREEDY.Models;
+using System.Windows.Forms;
+using System.IO;
 
 namespace GREEDY.DataManagers
 {
     public class DataManager : IDataManager
     {
-        /// <summary>
-        /// Saves data to {TBD} exploreryje issaugo faila
-        /// </summary>
-        /// <param name="itemList"></param>
-        public void SaveData (List<Item> itemList)
+        private readonly IAppConfig _config;
+        private SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+        public DataManager(IAppConfig config)
         {
-            throw new System.NotImplementedException ();
+            _config = config;
+        }
+        
+        // not tested yet. Need to write a methods to create a file
+        public void SaveData(List<Item> itemList)
+        {
+            using (saveFileDialog)
+            {
+                saveFileDialog.InitialDirectory = _config.SaveFilePath;
+                //saveFileDialog.Filter = _config.Filter;
+                saveFileDialog.Title = "Save an Image File";
+                saveFileDialog.RestoreDirectory = true;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //var SaveDataPath = saveFileDialog.FileName;
+                    if (saveFileDialog.FileName != "")
+                    {
+                        FileStream fs = (FileStream)saveFileDialog.OpenFile();
+                        fs.Close();
+                    }
+                    else
+                    {
+                        // what do you think about this part? how can I write exception if user close a window and do not select a picture/file?
+                    }
+                }
+            };
         }
 
         /// <summary>
@@ -23,7 +49,5 @@ namespace GREEDY.DataManagers
         {
             throw new System.NotImplementedException ();
         }
-
-
     }
 }

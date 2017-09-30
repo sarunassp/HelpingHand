@@ -12,35 +12,31 @@ namespace GREEDY.DataManagers
             _config = config;
         }
 
-        public OpenFileDialog GetPathDialog = new OpenFileDialog();
+        private OpenFileDialog GetPathDialog = new OpenFileDialog();
 
         public Bitmap GetImage()
         {
             using (GetPathDialog)
             {
+                //GetPathDialog.Filter = "Image Files(*.PNG; *.JPG; *.GIF)| *.PNG; *.JPG; *.GIF | All files(*.*) | *.*";
+                GetPathDialog.Filter = _config.Filter;
+                GetPathDialog.FilterIndex = 2;
+                GetPathDialog.RestoreDirectory = true;
+
                 if (GetPathDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //GetPathDialog.InitialDirectory = "C:\\";
-                    //GetPathDialog.Filter = "Image Files(*.PNG; *.JPG; *.GIF)| *.PNG; *.JPG; *.GIF | All files(*.*) | *.*";
-                    GetPathDialog.Filter = _config.Filter;
-                    GetPathDialog.FilterIndex = 2;
-                    GetPathDialog.RestoreDirectory = true;
-                    var GetImagePath = GetPathDialog.FileName;
-
-                    if (GetImagePath == "")
+                    if (GetPathDialog.FileName != "")
+                    {
+                        var imageBitmap = new Bitmap(GetPathDialog.FileName);
+                        return imageBitmap;
+                    }
+                    else
                     {
                         // what do you think about this part? how can I write exception if user close a window and do not select a picture/file?
                         return null;
                     }
-                    else
-                    {
-                        var imageBitmap = new Bitmap(GetImagePath);
-                        return imageBitmap;
-                    }
-
                 }
                 return null;
-                
             };
         }
     }

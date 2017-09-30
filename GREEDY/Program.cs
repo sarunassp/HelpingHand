@@ -27,7 +27,7 @@ namespace GREEDY.refactor
                     (
                         new EmguOcr (new AppConfig ()),
                         new DataConverter (), 
-                        new DataManager ()
+                        new DataManager (new AppConfig())
                     ),
                     new AppConfig ()
                 )
