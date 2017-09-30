@@ -10,7 +10,6 @@ namespace GREEDY.View
         private readonly IReceiptService _receiptService;
         private readonly IImageGetter _photoImageGetter;
         private readonly IImageGetter _fileImageGetter;
-        private readonly IAppConfig _config;
 
         public MainScreen(ReceiptService receiptService)
         {
@@ -41,21 +40,16 @@ namespace GREEDY.View
 
             Application.UseWaitCursor = false;
             InserFile_Button.Enabled = true;
-        }
-
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-
+            GC.Collect();
         }
 
         private void XMLdataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+           // ItemList.DataSource = rawDataFormatController.GetDataTable();
         }
 
-        private void DataViewScrollBar_Scroll(object sender, ScrollEventArgs e)
-        {
+        private void PictureBox1_Click(object sender, EventArgs e) { }
 
-        }
+        private void DataViewScrollBar_Scroll(object sender, ScrollEventArgs e) { }
     }
 }

@@ -17,7 +17,7 @@ namespace GREEDY.DataManagers
             {
                 saveFileDialog.InitialDirectory = AppConfig.SaveFilePath;
                 //saveFileDialog.Filter = _config.Filter;
-                saveFileDialog.Title = "Save an Image File";
+                saveFileDialog.Title = "Save an XML File";
                 saveFileDialog.RestoreDirectory = true;
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
