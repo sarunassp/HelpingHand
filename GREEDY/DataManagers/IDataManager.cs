@@ -8,5 +8,6 @@ namespace GREEDY.DataManagers
     {
         void SaveData (List<Item> itemList);
         List<Item> LoadData ();
+        void DisplayToScreen(List<Item> items);
     }
 }

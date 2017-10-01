@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using GREEDY.Services;
 using GREEDY.DataManagers;
+using System.Data;
 
 namespace GREEDY.View
 {
@@ -25,7 +26,7 @@ namespace GREEDY.View
             Application.UseWaitCursor = true;
             InserFile_Button.Enabled = false;
             var processedReceipt = _receiptService.ProcessReceiptImage(image);
-
+            XMLdataGridView.DataSource = processedReceipt;
             Application.UseWaitCursor = false;
             InserFile_Button.Enabled = true;
         }
@@ -36,7 +37,7 @@ namespace GREEDY.View
             Application.UseWaitCursor = true;
             InserFile_Button.Enabled = false;
             var processedReceipt = _receiptService.ProcessReceiptImage(image);
-
+            XMLdataGridView.DataSource = processedReceipt;
             Application.UseWaitCursor = false;
             InserFile_Button.Enabled = true;
         }

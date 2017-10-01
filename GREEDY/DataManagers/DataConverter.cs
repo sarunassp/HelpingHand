@@ -3,6 +3,8 @@ using GREEDY.Models;
 using System.Linq;
 using System;
 using System.Text.RegularExpressions;
+using System.Data;
+using System.Xml.Linq;
 
 namespace GREEDY.DataManagers
 {
@@ -44,6 +46,35 @@ namespace GREEDY.DataManagers
             {
                 throw new NotImplementedException();
             }
-}
+        }
+
+        public XElement ListToXml(List<Item> items)
+        {
+            XElement xmlElements = new XElement("items",
+                items.Select(i => new XElement("item",
+                new XAttribute("Name", i.Name),
+                new XAttribute("Price", i.Price),
+                new XAttribute("Category", i.Category))));
+            return xmlElements;
+        }
+
+        public DataTable ListToDataTable(List<Item> items)
+        {
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("Name");
+            dataTable.Columns.Add("Price");
+            dataTable.Columns.Add("Category");
+
+            foreach (Item item in items)
+            {
+                DataRow dr = dataTable.NewRow();
+                dr[0] = item.Name;
+                dr[1] = item.Price;
+                dr[2] = item.Category;
+                dataTable.Rows.Add(dr);
+            }
+            return dataTable;
+        }
+
     }
 }
