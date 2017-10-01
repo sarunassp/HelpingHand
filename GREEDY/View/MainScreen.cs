@@ -20,10 +20,12 @@ namespace GREEDY.View
             InitializeComponent();
         }
 
+        // TODO: move code that is repeated to private methods with meaningful method names
         private void InserFile_Button_Click(object sender, EventArgs e)
         {
             var image = _fileImageGetter.GetImage();
             Application.UseWaitCursor = true;
+            // typo below in button name
             InserFile_Button.Enabled = false;
             var processedReceipt = _receiptService.ProcessReceiptImage(image);
             XMLdataGridView.DataSource = processedReceipt;

@@ -42,6 +42,10 @@ namespace GREEDY.DataManagers
                 }
             };
         }
+        
+        
+        // TODO
+        // this is a data managing class, it shouldnt be handling displaying of anything
         /// <summary>
         /// Get list and display to the screen a table. Will be usefull in the future
         /// </summary>

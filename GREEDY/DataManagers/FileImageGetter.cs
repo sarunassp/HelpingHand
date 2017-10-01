@@ -27,7 +27,6 @@ namespace GREEDY.DataManagers
                     return imageBitmap;
                 }
             }
-            // what would a using acoomplish here?
             return null;
         }
     }
