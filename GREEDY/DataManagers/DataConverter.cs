@@ -16,7 +16,6 @@ namespace GREEDY.DataManagers
             var ReceiptLinesToString = String.Join(Environment.NewLine, receipt.LinesOfText);
             List<Item> itemlList = new List<Item>();
 
-            //var result = String.Join(Environment.NewLine, receipt.LinesOfText.Select(a => String.Join(", ", a)));
             if (shop == "RIMI" || shop == "MAXIMA")
             {
                 string pattern = @"([*]+)\n(.+)\n([*]+)";
@@ -31,7 +30,12 @@ namespace GREEDY.DataManagers
                     MatchCollection matches = Regex.Matches(ReceiptLinesToString, pattern, RegexOptions.Singleline);
                     foreach (Match m in matches)
                     {
-                        itemlList.Add(new Item(m.Groups[1].Value, decimal.Parse(m.Groups[3].Value), null));
+                        itemlList.Add(new Item
+                        {
+                            Name = m.Groups[1].Value,
+                            Price = decimal.Parse(m.Groups[3].Value),
+                            Category = null
+                        });
                     }
                 }
                 return itemlList;
