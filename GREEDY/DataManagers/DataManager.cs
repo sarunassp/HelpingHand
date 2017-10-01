@@ -20,7 +20,7 @@ namespace GREEDY.DataManagers
         {
             using (_saveFileDialog)
             {
-                _saveFileDialog.InitialDirectory = Environment.AppConfig.SaveFilePath;
+                _saveFileDialog.InitialDirectory = Environments.AppConfig.SaveFilePath;
                 //saveFileDialog.Filter = _config.Filter;
                 _saveFileDialog.Title = _saveDataDialogTitle;
                 _saveFileDialog.RestoreDirectory = true;

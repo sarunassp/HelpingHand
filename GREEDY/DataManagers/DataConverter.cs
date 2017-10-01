@@ -1,73 +1,45 @@
 ﻿using System.Collections.Generic;
 using GREEDY.Models;
 using System.Linq;
+using System;
+using System.Text.RegularExpressions;
 
 namespace GREEDY.DataManagers
 {
     public class DataConverter : IDataConverter
     {
-        // TODO: fix summary
-        /// <summary>
-        /// Parses receipt to item list, can just change to any type thats easy to read
-        /// </summary>
-        /// <param name="receipt"></param>
-        /// <returns></returns>
-        /// 
-
         private static ShopDistributor ShopDistributor => new ShopDistributor();
 
         public List<Item> ReceiptToItemList(Receipt receipt)
         {
             var shop = ShopDistributor.ReceiptDistributor(receipt);
+            var ReceiptLinesToString = String.Join(Environment.NewLine, receipt.LinesOfText);
+            List<Item> itemlList = new List<Item>();
+
+            //var result = String.Join(Environment.NewLine, receipt.LinesOfText.Select(a => String.Join(", ", a)));
             if (shop == "RIMI" || shop == "MAXIMA")
             {
-                foreach (string line in receipt.LinesOfText)
+                string pattern = @"([*]+)\n(.+)\n([*]+)";
+                ReceiptLinesToString = Regex.Replace(ReceiptLinesToString, @"\r", "");
+
+                Match match = Regex.Match(ReceiptLinesToString, pattern, RegexOptions.Singleline);
+                if (match.Success)
                 {
-                    if (line.ToUpper().Contains("KVITAS") || line.ToUpper().Contains("PIRKĖJAS"))
+                    ReceiptLinesToString = match.Groups[2].Value;
+                    pattern = @"([^..]*)([.]+)( \d+,\d\d)";
+
+                    MatchCollection matches = Regex.Matches(ReceiptLinesToString, pattern, RegexOptions.Singleline);
+                    foreach (Match m in matches)
                     {
-                        throw new System.NotImplementedException();
+                        itemlList.Add(new Item(m.Groups[1].Value, decimal.Parse(m.Groups[3].Value), null));
                     }
                 }
-
-                //    foreach (String line in receipt.LinesOfText)
-                //    {
-                //        _data += (line + Environment.NewLine);
-                //    }
-
-                //List<Item> itemsList = new List<Item>();
-                //foreach (var item in _data)
-                //{
-                //    itemsList.Add(new Item(item.Name, item.Price, item.Category));
-                //}
-
-                //    string pattern;
-                //    string input;
-
-                //    pattern = @"([*]+)\n(.+)\n([*]+)";
-                //    input = _data;
-                //    input = Regex.Replace(input, @"\r", "");
-
-                //    Match match = Regex.Match(input, pattern, RegexOptions.Singleline);
-                //    if (match.Success)
-                //    {
-                //        input = match.Groups[2].Value;
-                //        pattern = @"([^..]*)([.]+)( \d+,\d\d)";
-
-                //        MatchCollection matches = Regex.Matches(input, pattern, RegexOptions.Singleline);
-                //        foreach (Match m in matches)
-                //        {
-                //            itemlList.Add(new Item(m.Groups[1].Value, decimal.Parse(m.Groups[3].Value)));
-                //        }
-                //    }
-                //    return itemlList;
-                //}
-
-                return null;
+                return itemlList;
             }
             else
             {
-                throw new System.NotImplementedException();
+                throw new NotImplementedException();
             }
-        }
+}
     }
 }

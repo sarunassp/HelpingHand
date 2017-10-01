@@ -11,7 +11,7 @@ namespace GREEDY.DataManagers
         {
             _getPathDialog = new OpenFileDialog
             {
-                Filter = Environment.AppConfig.FilterImageFiles,
+                Filter = Environments.AppConfig.FilterImageFiles,
                 FilterIndex = 2,
                 RestoreDirectory = true
             };
