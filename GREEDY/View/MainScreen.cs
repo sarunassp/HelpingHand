@@ -12,7 +12,7 @@ namespace GREEDY.View
         private readonly IImageGetter _photoImageGetter;
         private readonly IImageGetter _fileImageGetter;
 
-        public MainScreen(ReceiptService receiptService)
+        public MainScreen(IReceiptService receiptService)
         {
             _receiptService = receiptService;
             _photoImageGetter = new PhotoImageGetter();
@@ -20,10 +20,12 @@ namespace GREEDY.View
             InitializeComponent();
         }
 
+        // TODO: move code that is repeated to private methods with meaningful method names
         private void InserFile_Button_Click(object sender, EventArgs e)
         {
             var image = _fileImageGetter.GetImage();
             Application.UseWaitCursor = true;
+            // typo below in button name
             InserFile_Button.Enabled = false;
             var processedReceipt = _receiptService.ProcessReceiptImage(image);
             ItemList.DataSource = processedReceipt;
@@ -45,7 +47,5 @@ namespace GREEDY.View
         private void XMLdataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
         private void PictureBox1_Click(object sender, EventArgs e) { }
-
-        private void DataViewScrollBar_Scroll(object sender, ScrollEventArgs e) { }
     }
 }
