@@ -26,7 +26,7 @@ namespace GREEDY.View
             Application.UseWaitCursor = true;
             InserFile_Button.Enabled = false;
             var processedReceipt = _receiptService.ProcessReceiptImage(image);
-            XMLdataGridView.DataSource = processedReceipt;
+            ItemList.DataSource = processedReceipt;
             Application.UseWaitCursor = false;
             InserFile_Button.Enabled = true;
         }
@@ -37,15 +37,12 @@ namespace GREEDY.View
             Application.UseWaitCursor = true;
             InserFile_Button.Enabled = false;
             var processedReceipt = _receiptService.ProcessReceiptImage(image);
-            XMLdataGridView.DataSource = processedReceipt;
+            ItemList.DataSource = processedReceipt;
             Application.UseWaitCursor = false;
             InserFile_Button.Enabled = true;
         }
 
-        private void XMLdataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        private void XMLdataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
         private void PictureBox1_Click(object sender, EventArgs e) { }
 
