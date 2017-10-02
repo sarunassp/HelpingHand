@@ -16,8 +16,7 @@ namespace GREEDY.DataManagers
             _saveFileDialog = new SaveFileDialog ();
             _getDataGridWiew = new DataGridView();
         }
-        
-        // not tested yet. Need to write a methods to create a file
+
         public void SaveData(List<Item> itemList)
         {
             using (_saveFileDialog)
@@ -42,8 +41,7 @@ namespace GREEDY.DataManagers
                 }
             };
         }
-        
-        
+
         // TODO
         // this is a data managing class, it shouldnt be handling displaying of anything
         /// <summary>

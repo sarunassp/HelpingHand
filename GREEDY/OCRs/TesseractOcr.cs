@@ -14,6 +14,7 @@ namespace GREEDY.OCRs
             _tesseract = new TesseractEngine 
             (
                 Environments.AppConfig.TesseractDataPath,
+                //TODO: need to implement Lithuanian language to this Ocr too
                 Environments.AppConfig.OcrLanguage,
                 EngineMode.TesseractAndCube
             );

@@ -27,6 +27,7 @@ namespace GREEDY.DataManagers
                     return imageBitmap;
                 }
             }
+
             //TODO
             //Should return something which allows to continue working
             return null;
