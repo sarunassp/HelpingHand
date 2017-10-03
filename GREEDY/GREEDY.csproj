@@ -45,6 +45,9 @@
     <Reference Include="Emgu.CV.World, Version=3.2.0.2721, Culture=neutral, PublicKeyToken=7281126722ab4438">
       <HintPath>..\packages\Emgu.CV.3.2.0.2721\lib\net35\Emgu.CV.World.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -60,20 +63,23 @@
     <Reference Include="Tesseract, Version=0.0.0.0, Culture=neutral, PublicKeyToken=ebeb3d86bef60cbe">
       <HintPath>..\packages\Tesseract.3.2.0-alpha4\lib\net451\Tesseract.dll</HintPath>
     </Reference>
-    <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60">
-      <HintPath>..\packages\ZedGraph.5.1.5\lib\ZedGraph.dll</HintPath>
+    <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfig.cs" />
     <Compile Include="DataManagers\FileImageGetter.cs" />
     <Compile Include="DataManagers\IImageGetter.cs" />
+    <Compile Include="DataManagers\IItemCategorization.cs" />
+    <Compile Include="DataManagers\ItemCategorization.cs" />
     <Compile Include="DataManagers\PhotoImageGetter.cs" />
     <Compile Include="DataManagers\DataConverter.cs" />
     <Compile Include="DataManagers\DataManager.cs" />
     <Compile Include="DataManagers\IDataConverter.cs" />
     <Compile Include="DataManagers\IDataManager.cs" />
-    <Compile Include="Environment.cs" />
+    <Compile Include="DataManagers\ShopDistributor.cs" />
+    <Compile Include="Environments.cs" />
     <Compile Include="Extensions\ExtensionMethods.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Receipt.cs" />
@@ -87,7 +93,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\IItemService.cs" />
     <Compile Include="Services\IReceiptService.cs" />
+    <Compile Include="Services\ItemService.cs" />
     <Compile Include="Services\ReceiptService.cs" />
     <Compile Include="View\MainScreen.cs">
       <SubType>Form</SubType>
@@ -103,6 +111,7 @@
     <EmbeddedResource Include="View\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Caregories.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -120,9 +129,12 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MainLogo.png" />
+    <Content Include="License-LGPL.txt" />
     <Content Include="tessdata\eng.cube.bigrams">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

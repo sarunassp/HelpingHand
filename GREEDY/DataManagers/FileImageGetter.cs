@@ -7,20 +7,18 @@ namespace GREEDY.DataManagers
     {
         private readonly OpenFileDialog _getPathDialog;
 
-        public FileImageGetter ()
+        public FileImageGetter()
         {
             _getPathDialog = new OpenFileDialog
             {
-                Filter = Environment.AppConfig.FilterImageFiles,
+                Filter = Environments.AppConfig.FilterImageFiles,
                 FilterIndex = 2,
                 RestoreDirectory = true
             };
         }
-        
+
         public Bitmap GetImage()
         {
-            // what would a using acoomplish here?
-
             if (_getPathDialog.ShowDialog() == DialogResult.OK)
             {
                 if (_getPathDialog.FileName != "")
@@ -29,6 +27,8 @@ namespace GREEDY.DataManagers
                     return imageBitmap;
                 }
             }
+            //TODO
+            //Should return something which allows to continue working
             return null;
         }
     }

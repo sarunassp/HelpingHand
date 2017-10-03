@@ -33,10 +33,9 @@ namespace GREEDY.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             this.InserFile_Button = new System.Windows.Forms.Button();
             this.PictureFromCamera_Button = new System.Windows.Forms.Button();
-            this.XMLdataGridView = new System.Windows.Forms.DataGridView();
-            this.DataViewScrollBar = new System.Windows.Forms.VScrollBar();
+            this.ItemList = new System.Windows.Forms.DataGridView();
             this.GREEDYLOGO = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.XMLdataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GREEDYLOGO)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,9 +44,10 @@ namespace GREEDY.View
             this.InserFile_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(188)))), ((int)(((byte)(211)))));
             this.InserFile_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.InserFile_Button.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.InserFile_Button.Location = new System.Drawing.Point(10, 317);
+            this.InserFile_Button.Location = new System.Drawing.Point(13, 390);
+            this.InserFile_Button.Margin = new System.Windows.Forms.Padding(4);
             this.InserFile_Button.Name = "InserFile_Button";
-            this.InserFile_Button.Size = new System.Drawing.Size(137, 48);
+            this.InserFile_Button.Size = new System.Drawing.Size(183, 59);
             this.InserFile_Button.TabIndex = 0;
             this.InserFile_Button.Text = "ĮKELTI NUOTRAUKĄ";
             this.InserFile_Button.UseVisualStyleBackColor = false;
@@ -58,60 +58,53 @@ namespace GREEDY.View
             this.PictureFromCamera_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(188)))), ((int)(((byte)(211)))));
             this.PictureFromCamera_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PictureFromCamera_Button.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.PictureFromCamera_Button.Location = new System.Drawing.Point(169, 317);
+            this.PictureFromCamera_Button.Location = new System.Drawing.Point(225, 390);
+            this.PictureFromCamera_Button.Margin = new System.Windows.Forms.Padding(4);
             this.PictureFromCamera_Button.Name = "PictureFromCamera_Button";
-            this.PictureFromCamera_Button.Size = new System.Drawing.Size(137, 48);
+            this.PictureFromCamera_Button.Size = new System.Drawing.Size(183, 59);
             this.PictureFromCamera_Button.TabIndex = 2;
             this.PictureFromCamera_Button.Text = "FOTOGRAFUOTI ČEKĮ";
             this.PictureFromCamera_Button.UseVisualStyleBackColor = false;
             this.PictureFromCamera_Button.Click += new System.EventHandler(this.PictureFromCamera_Button_Click);
             // 
-            // XMLdataGridView
+            // ItemList
             // 
-            this.XMLdataGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(255)))));
-            this.XMLdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.XMLdataGridView.Location = new System.Drawing.Point(12, 371);
-            this.XMLdataGridView.Name = "XMLdataGridView";
-            this.XMLdataGridView.Size = new System.Drawing.Size(294, 265);
-            this.XMLdataGridView.TabIndex = 3;
-            this.XMLdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.XMLdataGridView_CellContentClick);
-            // 
-            // DataViewScrollBar
-            // 
-            this.DataViewScrollBar.Location = new System.Drawing.Point(291, 371);
-            this.DataViewScrollBar.Name = "DataViewScrollBar";
-            this.DataViewScrollBar.Size = new System.Drawing.Size(15, 265);
-            this.DataViewScrollBar.TabIndex = 4;
-            this.DataViewScrollBar.Visible = false;
-            this.DataViewScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.DataViewScrollBar_Scroll);
+            this.ItemList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(255)))));
+            this.ItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ItemList.Location = new System.Drawing.Point(16, 457);
+            this.ItemList.Margin = new System.Windows.Forms.Padding(4);
+            this.ItemList.Name = "ItemList";
+            this.ItemList.Size = new System.Drawing.Size(392, 326);
+            this.ItemList.TabIndex = 3;
+            this.ItemList.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.ItemList_CellValueChanged);
             // 
             // GREEDYLOGO
             // 
             this.GREEDYLOGO.ErrorImage = global::GREEDY.Properties.Resources.MainLogo;
             this.GREEDYLOGO.Image = global::GREEDY.Properties.Resources.MainLogo;
             this.GREEDYLOGO.InitialImage = global::GREEDY.Properties.Resources.MainLogo;
-            this.GREEDYLOGO.Location = new System.Drawing.Point(10, 12);
+            this.GREEDYLOGO.Location = new System.Drawing.Point(13, 15);
+            this.GREEDYLOGO.Margin = new System.Windows.Forms.Padding(4);
             this.GREEDYLOGO.Name = "GREEDYLOGO";
-            this.GREEDYLOGO.Size = new System.Drawing.Size(296, 299);
+            this.GREEDYLOGO.Size = new System.Drawing.Size(395, 368);
             this.GREEDYLOGO.TabIndex = 1;
             this.GREEDYLOGO.TabStop = false;
-            this.GREEDYLOGO.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // MainScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(318, 646);
-            this.Controls.Add(this.DataViewScrollBar);
-            this.Controls.Add(this.XMLdataGridView);
+            this.ClientSize = new System.Drawing.Size(424, 795);
+            this.Controls.Add(this.ItemList);
             this.Controls.Add(this.PictureFromCamera_Button);
             this.Controls.Add(this.GREEDYLOGO);
             this.Controls.Add(this.InserFile_Button);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainScreen";
             this.Text = "GREEDY";
-            ((System.ComponentModel.ISupportInitialize)(this.XMLdataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GREEDYLOGO)).EndInit();
             this.ResumeLayout(false);
 
@@ -122,8 +115,7 @@ namespace GREEDY.View
         private System.Windows.Forms.Button InserFile_Button;
         private System.Windows.Forms.PictureBox GREEDYLOGO;
         private System.Windows.Forms.Button PictureFromCamera_Button;
-        private System.Windows.Forms.DataGridView XMLdataGridView;
-        private System.Windows.Forms.VScrollBar DataViewScrollBar;
+        private System.Windows.Forms.DataGridView ItemList;
 
         //private ReceiptService receiptService;
 

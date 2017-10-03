@@ -6,7 +6,9 @@ namespace GREEDY.DataManagers
 {
     public interface IDataManager
     {
-        void SaveData (List<Item> itemList);
-        List<Item> LoadData ();
+        // TODO: remove unnecessary methods
+        void SaveData(List<Item> itemList);
+        List<Item> LoadData();
+        void DisplayToScreen(List<Item> items);
     }
 }
