@@ -2,6 +2,6 @@
 {
     public class Environments
     {
-        public static IAppConfig AppConfig => new AppConfig ();
+        public static IAppConfig AppConfig => new AppConfig();
     }
 }

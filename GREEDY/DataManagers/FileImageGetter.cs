@@ -7,7 +7,7 @@ namespace GREEDY.DataManagers
     {
         private readonly OpenFileDialog _getPathDialog;
 
-        public FileImageGetter ()
+        public FileImageGetter()
         {
             _getPathDialog = new OpenFileDialog
             {
@@ -16,7 +16,7 @@ namespace GREEDY.DataManagers
                 RestoreDirectory = true
             };
         }
-        
+
         public Bitmap GetImage()
         {
             if (_getPathDialog.ShowDialog() == DialogResult.OK)
@@ -27,7 +27,6 @@ namespace GREEDY.DataManagers
                     return imageBitmap;
                 }
             }
-
             //TODO
             //Should return something which allows to continue working
             return null;

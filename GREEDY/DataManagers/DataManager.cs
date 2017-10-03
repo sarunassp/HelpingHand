@@ -10,10 +10,10 @@ namespace GREEDY.DataManagers
         private readonly SaveFileDialog _saveFileDialog;
         private readonly DataGridView _getDataGridWiew;
         private readonly string _saveDataDialogTitle = "Save an Image File";
-        
-        public DataManager ()
+
+        public DataManager()
         {
-            _saveFileDialog = new SaveFileDialog ();
+            _saveFileDialog = new SaveFileDialog();
             _getDataGridWiew = new DataGridView();
         }
 
@@ -28,20 +28,11 @@ namespace GREEDY.DataManagers
 
                 if (_saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //var SaveDataPath = saveFileDialog.FileName;
-                    if (_saveFileDialog.FileName != "")
-                    {
-                        FileStream fs = (FileStream)_saveFileDialog.OpenFile();
-                        fs.Close();
-                    }
-                    else
-                    {
-                        // how can I write exception if user close a window and do not select a picture/file?
-                    }
+                    FileStream fs = (FileStream)_saveFileDialog.OpenFile();
+                    fs.Close();
                 }
             };
         }
-
         // TODO
         // this is a data managing class, it shouldnt be handling displaying of anything
         /// <summary>
@@ -57,9 +48,9 @@ namespace GREEDY.DataManagers
         /// Gets data from {TBD}
         /// </summary>
         /// <returns></returns>
-        public List<Item> LoadData ()
+        public List<Item> LoadData()
         {
-            throw new System.NotImplementedException ();
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -45,6 +45,9 @@
     <Reference Include="Emgu.CV.World, Version=3.2.0.2721, Culture=neutral, PublicKeyToken=7281126722ab4438">
       <HintPath>..\packages\Emgu.CV.3.2.0.2721\lib\net35\Emgu.CV.World.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -68,6 +71,8 @@
     <Compile Include="AppConfig.cs" />
     <Compile Include="DataManagers\FileImageGetter.cs" />
     <Compile Include="DataManagers\IImageGetter.cs" />
+    <Compile Include="DataManagers\IItemCategorization.cs" />
+    <Compile Include="DataManagers\ItemCategorization.cs" />
     <Compile Include="DataManagers\PhotoImageGetter.cs" />
     <Compile Include="DataManagers\DataConverter.cs" />
     <Compile Include="DataManagers\DataManager.cs" />
@@ -88,7 +93,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\IItemService.cs" />
     <Compile Include="Services\IReceiptService.cs" />
+    <Compile Include="Services\ItemService.cs" />
     <Compile Include="Services\ReceiptService.cs" />
     <Compile Include="View\MainScreen.cs">
       <SubType>Form</SubType>
@@ -121,7 +128,9 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MainLogo.png" />
     <Content Include="License-LGPL.txt" />

@@ -11,7 +11,7 @@ namespace GREEDY.OCRs
     {
         private readonly Emgu.CV.OCR.Tesseract _tesseract;
 
-        public EmguOcr ()
+        public EmguOcr()
         {
             _tesseract = new Emgu.CV.OCR.Tesseract
             (
@@ -20,12 +20,12 @@ namespace GREEDY.OCRs
                 OcrEngineMode.Default
             );
         }
-        
-        public Receipt ConvertImage (Bitmap image)
+
+        public Receipt ConvertImage(Bitmap image)
         {
-            _tesseract.SetImage (new Image<Bgr, byte> (image));
-            _tesseract.Recognize ();
-            return _tesseract.GetReceipt ();
+            _tesseract.SetImage(new Image<Bgr, byte>(image));
+            _tesseract.Recognize();
+            return _tesseract.GetReceipt();
         }
     }
 }

@@ -3,6 +3,7 @@ using GREEDY.DataManagers;
 using GREEDY.Models;
 using GREEDY.OCRs;
 using System.Drawing;
+using System;
 
 namespace GREEDY.Services
 {
@@ -21,12 +22,20 @@ namespace GREEDY.Services
 
         public List<Item> ProcessReceiptImage(Bitmap image)
         {
-            var receipt = _ocr.ConvertImage(image);
-            var itemList = _dataConverter.ReceiptToItemList(receipt);
-            _dataManager.DisplayToScreen(itemList);
-            //TODO: need to finish implement save method
+            if (image != null)
+            {
+                var receipt = _ocr.ConvertImage(image);
+                var itemList = _dataConverter.ReceiptToItemList(receipt);
+                return itemList;
+            }
+            else
+            {
+                return null;
+            }
+
+            //_dataManager.DisplayToScreen(itemList);
             //_dataManager.SaveData(itemList);
-            return itemList;
+
         }
     }
 }

@@ -9,21 +9,20 @@ namespace GREEDY.OCRs
     {
         private readonly TesseractEngine _tesseract;
 
-        public TesseractOcr ()
+        public TesseractOcr()
         {
-            _tesseract = new TesseractEngine 
+            _tesseract = new TesseractEngine
             (
                 Environments.AppConfig.TesseractDataPath,
-                //TODO: need to implement Lithuanian language to this Ocr too
                 Environments.AppConfig.OcrLanguage,
                 EngineMode.TesseractAndCube
             );
         }
-        
-        public Receipt ConvertImage (Bitmap image)
+
+        public Receipt ConvertImage(Bitmap image)
         {
             var page = _tesseract.Process(image);
-            return page.GetReceipt ();
+            return page.GetReceipt();
         }
     }
 }

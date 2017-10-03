@@ -5,6 +5,6 @@ namespace GREEDY.OCRs
 {
     public interface IOcr
     {
-        Receipt ConvertImage (Bitmap image);
+        Receipt ConvertImage(Bitmap image);
     }
 }
