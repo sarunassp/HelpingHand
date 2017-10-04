@@ -16,6 +16,8 @@ namespace GREEDY.Services
             _itemCategorization = itemCategorization;
         }
 
+        /// TODO:
+        // you're basically calling a single method from another class, why not just use that class instead?
         public void AddChangeCategory(string itemName, string category)
         {
             _itemCategorization.AddChangeCategories(itemName.ToLower(), category.ToLower());

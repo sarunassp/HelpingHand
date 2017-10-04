@@ -8,7 +8,7 @@ namespace GREEDY.Extensions
     {
         public static Receipt GetReceipt(this Emgu.CV.OCR.Tesseract source)
         {
-            var linesOfText = source.GetUTF8Text()?.Split('\n').ToList();
+            var linesOfText = source.GetUTF8Text().Split('\n').ToList();
             return new Receipt { LinesOfText = linesOfText };
         }
 

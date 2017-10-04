@@ -28,4 +28,10 @@ namespace GREEDY.DataManagers
             }
         }
     }
+
+    public enum Shops
+    {
+        Rimi,
+        Maxima
+    }
 }

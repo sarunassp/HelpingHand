@@ -1,18 +1,19 @@
-﻿using GREEDY.Models;
-using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+using Newtonsoft.Json;
 
 namespace GREEDY.DataManagers
 {
     class ItemCategorization : IItemCategorization
     {
         private static Dictionary<string, string> CategoriesDictionary;
+        
         static ItemCategorization()
         {
+            // why have this in a method and not in the constructor?
             UpdateCategories();
         }
+        
         // TODO: write a more flexible item categorization
         // decimal price is not needed for now, 
         // but maybe available implementation for the future to help categorization
@@ -29,6 +30,7 @@ namespace GREEDY.DataManagers
             return itemCategory;
         }
 
+        // TODO: use datamanager class for writing/reading from files
         private static void UpdateCategories()
         {
             if (!File.Exists(Environments.AppConfig.CategoriesDataPath))

@@ -10,27 +10,29 @@ namespace GREEDY.DataManagers
 {
     public class DataConverter : IDataConverter
     {
+        // TODO: create interfaces for these clases and pass them to constructor
         private static ShopDistributor ShopDistributor => new ShopDistributor();
         private static ItemCategorization ItemCategorization => new ItemCategorization();
 
         public List<Item> ReceiptToItemList(Receipt receipt)
         {
             var shop = ShopDistributor.ReceiptDistributor(receipt);
-            var ReceiptLinesToString = String.Join(Environment.NewLine, receipt.LinesOfText);
+            var receiptLinesToString = String.Join(Environment.NewLine, receipt.LinesOfText);
             List<Item> itemlList = new List<Item>();
 
             if (shop == "RIMI" || shop == "MAXIMA")
             {
+                // TODO: either use var or type of variable, don't use both
                 string pattern = @"([*]+)\n(.+)\n([*]+)";
-                ReceiptLinesToString = Regex.Replace(ReceiptLinesToString, @"\r", "");
+                receiptLinesToString = Regex.Replace(receiptLinesToString, @"\r", "");
 
-                Match match = Regex.Match(ReceiptLinesToString, pattern, RegexOptions.Singleline);
+                Match match = Regex.Match(receiptLinesToString, pattern, RegexOptions.Singleline);
                 if (match.Success)
                 {
-                    ReceiptLinesToString = match.Groups[2].Value;
+                    receiptLinesToString = match.Groups[2].Value;
                     pattern = @"([^..]*)([.]+)( \d+,\d\d)";
 
-                    MatchCollection matches = Regex.Matches(ReceiptLinesToString, pattern, RegexOptions.Singleline);
+                    MatchCollection matches = Regex.Matches(receiptLinesToString, pattern, RegexOptions.Singleline);
                     foreach (Match m in matches)
                     {
                         itemlList.Add(new Item
@@ -45,6 +47,7 @@ namespace GREEDY.DataManagers
             }
             else
             {
+                // TODO: add meaningful message here
                 throw new NotImplementedException();
             }
         }
